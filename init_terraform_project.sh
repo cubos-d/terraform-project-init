@@ -33,6 +33,6 @@ touch_files ${example_module_path}
 touch ${project_name}/terraform.tfvars
 generate_provider_aws
 
-curl -sSLo -o "${project_name}/.gitignore" https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Terraform.gitignore
+curl -sSLo "${project_name}/.gitignore" https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Terraform.gitignore
 
 cd "${project_name}" && git init
