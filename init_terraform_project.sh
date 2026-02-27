@@ -24,6 +24,14 @@ generate_provider_aws() {
 	EOF
 }
 
+write_example_module() {
+	cat <<-EOF > ${project_name}/main.tf
+	module "example_module" {
+  		source      = "./example_module"
+	}
+	EOF
+}
+
 touch_files() {
     touch "$1/main.tf" "$1/variables.tf" "$1/outputs.tf"
 }
@@ -32,6 +40,7 @@ touch_files ${project_name}
 touch_files ${example_module_path}
 touch ${project_name}/terraform.tfvars
 generate_provider_aws
+write_example_module
 
 curl -sSLo "${project_name}/.gitignore" https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Terraform.gitignore
 
